@@ -1,0 +1,1 @@
+var angularToDoList = angular.module('ToDoList', ['ngResource']);
