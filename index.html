@@ -12,15 +12,19 @@
   </head>
 
   <body ng-controller="ToDoListController as taskCtrl">
+  <h3>Total Tasks: {{ taskCtrl.counter }}</h3>
     <div>
       <form class="form-horizontal">
         <input type="text" ng-model="taskCtrl.newTask">
         <button class="btn" ng-click="taskCtrl.addTask()">Add Task</button>
+        <button class="btn" ng-click="taskCtrl.deleteCompletedTasks()">Clear Completed Tasks</button>
       </form>
       <ul class="list-group">
         <li ng-repeat="task in taskCtrl.taskList">
           <h2>{{ task.description }}</h2>
-          <h4>Status: {{ task.status }}</h4>
+          <p>Status: {{ task.status }}</p>
+          <button class="btn" ng-click="taskCtrl.deleteTask($index)">Delete Task</button>
+          <button class="btn" ng-click="taskCtrl.completeTask($index)">Complete Task</button>
         </li>
       </ul>
     </div>

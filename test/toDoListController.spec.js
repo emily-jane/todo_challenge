@@ -33,4 +33,40 @@ describe('ToDoListController', function() {
     });
   });
 
+  describe('when deleting a task', function() {
+    it('deletes a task when button is pressed', function() {
+      ctrl.newTask = 'testing';
+      ctrl.addTask();
+      ctrl.deleteTask();
+      expect(ctrl.taskList).toEqual([]);
+    })
+  });
+
+  describe('when completing a task', function() {
+    xit('changes the status to completed when button is pressed', function() {
+      ctrl.newTask = 'testing';
+      ctrl.addTask();
+      ctrl.completeTask();
+      expect(ctrl.taskList[0].status).toEqual('Completed');
+    });
+
+    xit('deletes all completed tasks when top button is pressed', function() {
+      ctrl.newTask = 'testing';
+      ctrl.addTask();
+      ctrl.completeTask();
+      ctrl.deleteCompletedTasks();
+      expect(ctrl.taskList).toEqual([]);
+    });
+  });
+
+  describe('counting total tasks', function() {
+    it('counts total tasks', function() {
+      ctrl.newTask = 'testing';
+      ctrl.addTask();
+      ctrl.newTask = 'testing2';
+      ctrl.addTask();
+      expect(ctrl.counter).toEqual(2);
+    });
+  });
+
 });
